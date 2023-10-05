@@ -13,13 +13,15 @@ const newsDetails = document.getElementById("newsDetails");
 let newsDataArr = [];
 
 //API's
+const proxyUrl = "https://cors-anywhere.herokuapp.com/"
 const API_KEY = "6f5c50c9e44742d79581b9e15a742584";
-const HEADLINE_NEWS ="https://newsapi.org/v2/top-headlines?country=in&apiKey=6f5c50c9e44742d79581b9e15a742584"; 
-const GENERAL_NEWS = "https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=6f5c50c9e44742d79581b9e15a742584";
-const BUSINESS_NEWS = "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=6f5c50c9e44742d79581b9e15a742584";
-const SPORTS_NEWS = "https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=6f5c50c9e44742d79581b9e15a742584";
-const ENTERTAINMENT_NEWS = "https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=6f5c50c9e44742d79581b9e15a742584";
-const TECHNOLOGY_NEWS = "https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=6f5c50c9e44742d79581b9e15a742584";
+const HEADLINE_NEWS =`${proxyUrl}https://newsapi.org/v2/top-headlines?country=in&apiKey=6f5c50c9e44742d79581b9e15a742584`;
+const GENERAL_NEWS = `${proxyUrl}https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=6f5c50c9e44742d79581b9e15a742584`;
+const BUSINESS_NEWS = `${proxyUrl}https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=6f5c50c9e44742d79581b9e15a742584`;
+const SPORTS_NEWS = `${proxyUrl}https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=6f5c50c9e44742d79581b9e15a742584`;
+const ENTERTAINMENT_NEWS = `${proxyUrl}https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=6f5c50c9e44742d79581b9e15a742584`;
+
+const TECHNOLOGY_NEWS = `${proxyUrl}https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=6f5c50c9e44742d79581b9e15a742584`;
 
 window.onload=function(){
     newsType.innerHTML = "<h4>Headlines</h4>";
@@ -168,7 +170,7 @@ const fetchQueryNews = async (query)=> {
     {
         return;
     }
-    let SEARCH_NEWS = `https://newsapi.org/v2/everything?q=${query}&from=2023-10-01&sortBy=popularity&apiKey=6f5c50c9e44742d79581b9e15a742584`;
+    let SEARCH_NEWS = `${proxyUrl}https://newsapi.org/v2/everything?q=${query}&from=2023-10-01&sortBy=popularity&apiKey=6f5c50c9e44742d79581b9e15a742584`;
     const response = await fetch(SEARCH_NEWS);
     if(response.status >=200 && response.status<300)
     {
